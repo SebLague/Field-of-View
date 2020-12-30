@@ -119,7 +119,7 @@ public class FieldOfView : MonoBehaviour {
 			ViewCastInfo newViewCast = ViewCast (angle);
 
 			bool edgeDstThresholdExceeded = Mathf.Abs (minViewCast.dst - newViewCast.dst) > edgeDstThreshold;
-			if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded) {
+			if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded || newViewCast.hit != minViewCast.hit && edgeDstThresholdExceeded) {
 				minAngle = angle;
 				minPoint = newViewCast.point;
 			} else {
